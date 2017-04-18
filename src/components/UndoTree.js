@@ -9,45 +9,23 @@ class UndoTree extends Component {
         super();
         this.state = { 
             data: {
-                'name': 'Eve',
-                'children': [
-                    {
-                        'name': 'Cain'
-                    },
-                    {
-                        'name': 'Seth',
-                        'children': [
-                            {
-                                'name': 'Enos'
-                            },
-                            {
-                                'name': 'Noam'
-                            }
-                        ]
-                    },
-                    {
-                        'name': 'Abel'
-                    },
-                    {
-                        'name': 'Awan',
-                        'children': [
-                            {
-                                'name': 'Enoch'
-                            }
-                        ]
-                    },
-                    {
-                        'name': 'Azura'
-                    }
-                ]
+                'name': '',
+                'id': 1
             } 
         };
+    }
+
+    nodeClick(key) {
+        console.log(key);
     }
 
     render() {
         return (
             <div className='UndoTree'>
-            <Tree data={this.state.data} height={400} width={400} />
+                <Tree data={this.state.data} 
+                    height={300} 
+                    width={400} keyProp='id' 
+                    nodeClickHandler={this.nodeClick.bind(this)}/>
             </div>
         );
     }
